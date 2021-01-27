@@ -17,7 +17,14 @@ const SignIn: React.FC = () => {
       <Input />
       <Input />
 
-      <Button>Entrar</Button>
+      <Button
+        onPress={() => {
+          // eslint-disable-next-line no-console
+          console.log('Deu');
+        }}
+      >
+        Entrar
+      </Button>
     </Container>
   );
 };

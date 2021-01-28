@@ -29,6 +29,7 @@
         "prettier"
     ],
     "rules": {
+      "@typescript-eslint/no-empty-function": "warn",
       "react/prop-types": "warn",
       "react/jsx-props-no-spreading": "off",
       "react-hooks/rules-of-hooks": "error",

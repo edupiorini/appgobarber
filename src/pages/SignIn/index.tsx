@@ -1,5 +1,11 @@
 import React from 'react';
-import { Image, KeyboardAvoidingView, Platform } from 'react-native';
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import Input from '../../components/Input';
@@ -23,30 +29,38 @@ const SignIn: React.FC = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         enabled
       >
-        <Container>
-          <Image source={logoImg} />
-          <Title>Faça seu logon</Title>
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{ flex: 1 }}
+        >
+          <Container>
+            <Image source={logoImg} />
 
-          <Input name="email" icon="mail" placeholder="E-mail" />
-          <Input name="password" icon="lock" placeholder="Senha" />
-          <Button
-            onPress={() => {
-              // eslint-disable-next-line no-console
-              console.log('Deu');
-            }}
-          >
-            Entrar
-          </Button>
+            <View>
+              <Title>Faça seu logon</Title>
+            </View>
 
-          <ForgotPassword
-            onPress={() => {
-              // eslint-disable-next-line no-console
-              console.log('esqueci');
-            }}
-          >
-            <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-          </ForgotPassword>
-        </Container>
+            <Input name="email" icon="mail" placeholder="E-mail" />
+            <Input name="password" icon="lock" placeholder="Senha" />
+            <Button
+              onPress={() => {
+                // eslint-disable-next-line no-console
+                console.log('Deu');
+              }}
+            >
+              Entrar
+            </Button>
+
+            <ForgotPassword
+              onPress={() => {
+                // eslint-disable-next-line no-console
+                console.log('esqueci');
+              }}
+            >
+              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+            </ForgotPassword>
+          </Container>
+        </ScrollView>
       </KeyboardAvoidingView>
       <CreateAccountButton onPress={() => {}}>
         <Icon name="log-in" size={20} color="#ff9000" />

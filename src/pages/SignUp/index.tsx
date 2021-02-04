@@ -34,35 +34,22 @@ const SignUp: React.FC = () => {
             <Image source={logoImg} />
 
             <View>
-              <Title>Faça seu logon</Title>
+              <Title>Crie sua conta</Title>
             </View>
-            <Form ref={formRef} onSubmit={handleSignIn}>
-              <Input name="email" icon="mail" placeholder="E-mail" />
-              <Input name="password" icon="lock" placeholder="Senha" />
-              <Button
-                onPress={() => {
-                  formRef.current?.submitForm();
-                }}
-              >
-                Entrar
-              </Button>
-            </Form>
 
-            <ForgotPassword
-              onPress={() => {
-                // eslint-disable-next-line no-console
-                console.log('esqueci');
-              }}
-            >
-              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-            </ForgotPassword>
+            <Input name="email" icon="mail" placeholder="E-mail" />
+
+            <Input name="password" icon="lock" placeholder="Senha" />
+
+            <Button onPress={() => console.log('Deu')}>Entrar</Button>
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
-      <CreateAccountButton onPress={() => navigation.navigate('SignUp')}>
+
+      <BackToSignIn onPress={() => navigation.navigate('SignUp')}>
         <Icon name="log-in" size={20} color="#ff9000" />
-        <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
-      </CreateAccountButton>
+        <BackToSignInText>Criar uma conta</BackToSignInText>
+      </BackToSignIn>
     </>
   );
 };

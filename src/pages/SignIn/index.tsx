@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 
@@ -15,15 +16,17 @@ import Button from '../../components/Button';
 
 import logoImg from '../../assets/logo.png';
 
-import { Container, Title } from './styles';
 import {
+  Container,
   CreateAccountButton,
   CreateAccountButtonText,
   ForgotPassword,
   ForgotPasswordText,
-} from '../../components/Button/style';
+  Title,
+} from './styles';
 
 const SignIn: React.FC = () => {
+  const navigation = useNavigation();
   const formRef = useRef<FormHandles>(null);
 
   const handleSignIn = useCallback((data: object) => {
@@ -70,7 +73,7 @@ const SignIn: React.FC = () => {
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
-      <CreateAccountButton onPress={() => {}}>
+      <CreateAccountButton onPress={() => navigation.navigate('SignUp')}>
         <Icon name="log-in" size={20} color="#ff9000" />
         <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
       </CreateAccountButton>
